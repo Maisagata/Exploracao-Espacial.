@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Space theme - Deep space background */
+    --background: 220 30% 5%;
+    --foreground: 210 100% 95%;
+
+    /* Cards with subtle glow */
+    --card: 220 25% 10%;
+    --card-foreground: 210 100% 95%;
+
+    --popover: 220 25% 10%;
+    --popover-foreground: 210 100% 95%;
+
+    /* Cyan/Blue primary accent */
+    --primary: 195 100% 50%;
+    --primary-foreground: 220 30% 5%;
+
+    /* Darker secondary */
+    --secondary: 220 20% 15%;
+    --secondary-foreground: 210 100% 95%;
+
+    /* Muted elements */
+    --muted: 220 20% 15%;
+    --muted-foreground: 210 20% 65%;
+
+    /* Golden accent for highlights */
+    --accent: 45 100% 60%;
+    --accent-foreground: 220 30% 5%;
+
+    --destructive: 0 80% 55%;
+    --destructive-foreground: 210 100% 95%;
+
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 195 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom space theme variables */
+    --space-glow: 195 100% 50%;
+    --star-gold: 45 100% 60%;
+    --deep-space: 220 30% 5%;
+  }
+}
+
+@layer utilities {
+  .space-gradient {
+    background: linear-gradient(135deg, hsl(220 30% 5%) 0%, hsl(220 40% 8%) 50%, hsl(210 50% 10%) 100%);
+  }
+  
+  .glow-text {
+    text-shadow: 0 0 20px hsl(var(--primary) / 0.5);
+  }
+  
+  .card-glow {
+    box-shadow: 0 4px 20px hsl(var(--primary) / 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .card-glow:hover {
+    box-shadow: 0 8px 30px hsl(var(--primary) / 0.2);
+    transform: translateY(-4px);
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+  
+  .animate-twinkle {
+    animation: twinkle 3s ease-in-out infinite;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
