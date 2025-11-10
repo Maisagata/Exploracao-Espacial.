@@ -1,26 +1,30 @@
-import js from "@eslint/js";
-import globals from "globals";
-import reactHooks from "eslint-plugin-react-hooks";
-import reactRefresh from "eslint-plugin-react-refresh";
-import tseslint from "typescript-eslint";
+// Aguarda o carregamento completo do DOM
+document.addEventListener('DOMContentLoaded', () => {
+    // Seleciona os botões
+    const exploreBtn = document.getElementById('explore-planets-btn');
+    const missionsBtn = document.getElementById('view-missions-btn');
+    const scrollIndicator = document.querySelector('.scroll-indicator');
 
-export default tseslint.config(
-  { ignores: ["dist"] },
-  {
-    extends: [js.configs.recommended, ...tseslint.configs.recommended],
-    files: ["**/*.{ts,tsx}"],
-    languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser,
-    },
-    plugins: {
-      "react-hooks": reactHooks,
-      "react-refresh": reactRefresh,
-    },
-    rules: {
-      ...reactHooks.configs.recommended.rules,
-      "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
-      "@typescript-eslint/no-unused-vars": "off",
-    },
-  },
-);
+    // Função para lidar com o clique
+    const handleButtonClick = (action) => {
+        alert(`Ação: ${action} - Esta é apenas uma simulação. O código completo de navegação e conteúdo de "Planetas" ou "Missões" precisaria ser implementado!`);
+        console.log(`Botão clicado: ${action}`);
+    };
+
+    // Adiciona o evento de clique ao botão "Explorar Planetas"
+    exploreBtn.addEventListener('click', () => {
+        handleButtonClick('Explorar Planetas');
+    });
+
+    // Adiciona o evento de clique ao botão "Ver Missões"
+    missionsBtn.addEventListener('click', () => {
+        handleButtonClick('Ver Missões');
+    });
+
+    // Adiciona um comportamento à seta para baixo (ex: rolar a página)
+    scrollIndicator.addEventListener('click', () => {
+        // Simula uma rolagem para a próxima seção
+        alert('Ação: Rolar para baixo (Próxima seção)');
+        console.log('Indicador de rolagem clicado.');
+    });
+});
